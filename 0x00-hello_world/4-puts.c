@@ -1,13 +1,15 @@
 #include <stdio.h>
+
 /*
- * print a C progrm using puts 
- * printf function should not be used
- *return:0
+ * main - Entry point
  *
+ * main - print a line of code using put
+ *
+ * Return: Always 0 (success)
  */
 
-int main(void) 
+int main(void)
 {
-	puts("programming is like building a multilingual puzzle\n");
+	puts("\"Programming is like building a multilingual puzzle");
 	return (0);
-} 
+}
