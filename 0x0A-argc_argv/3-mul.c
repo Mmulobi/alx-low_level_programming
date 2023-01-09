@@ -1,29 +1,29 @@
-#include "holberton.h"
-#include <stdio.h>
+#include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
- * main - prints the mutiplication of two args numbers
+ * main - program that mutiplies two arg numbers
  * @argc: argument count
  * @argv: argument vector
  *
- * Return: always zero
+ * Return: Always zero
  */
 int main(int argc, char *argv[])
 {
-	int n1 = 0, n2 = 0;
+	int b = 0;
 
 	if (argc == 3)
 	{
-		n1 = atoi(argv[1]);
-		n2 = atoi(argv[2]);
-		printf("%d\n", n1 * n2);
+		b = atoi(argv[1]) * atoi(argv[2]);
+
+		printf("%d\n", b);
+		return (0);
+
 	}
 	else
 	{
 		printf("Error\n");
-		return (1);
 	}
-
-	return (0);
+	return (1);
 }
