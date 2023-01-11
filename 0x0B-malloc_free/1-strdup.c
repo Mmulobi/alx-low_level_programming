@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
 /**
  * _strdup - a function to copy a string on a new allocated memory
  * @str: string to be copied
@@ -8,29 +9,26 @@
  */
 char *_strdup(char *str)
 {
-	char *k;
-	int i;
-	int count = 0;
+	int length = 0, i = 0;
+	char *p;
 
 	if (str == NULL)
 		return (NULL);
 
-	while (*(str + count))
+	while (str[length])
+		length++;
 
-		count++;
-
-	k = malloc(sizeof(char) * (count + 1));
-
-	if (k == NULL)
-		return (NULL);
-
-	i = 0;
-
-	while (i <= count)
+	p = malloc((length + 1) * sizeof(char));
+	if (p == NULL)
 	{
-		*(k + 1) = *(str + 1);
+		free(p);
+		return (p);
+	}
+	while (i < length)
+	{
+		p[i] = str[i];
 		i++;
 	}
-
-	return (k);
+	p[i] = '\0';
+	return (p);
 }
