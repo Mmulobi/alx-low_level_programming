@@ -1,6 +1,6 @@
-#include <stdio.h>
+#include "3-calc.h"
 #include <stdlib.h>
-#include <udis86.h>
+#include <stdio.h>
 
 /**
   * main - ...
@@ -11,29 +11,22 @@
   */
 int main(int argc, char *argv[])
 {
-	ud_t ud_obj;
-	int val = 0, i = 0;
+	int (*oprt)(int, int);
 
-	if (argc == 2)
+	if (argc != 4)
 	{
-		val = atoi(argv[1]);
-
-		if (val < 0)
-		{
-			printf("Error\n");
-			exit(2);
-		}
-
-		ud_unit(&ud_obj);
-		ud_set_input_buffer(&ud_obj, argv[1], val);
-		ud_set_mode(&ud_obj, 64);
-		ud_set_syntax(&ud_obj, UD_SYN_INTEL);
-
-		while (ud_disassemble(&ud_obj))
-		{
-			printf("\t%s\n", ud_insn_hex(&ud_obj));
-		}
+		printf("Error\n");
+		exit(98);
 	}
 
+	oprt = get_op_func(argv[2]);
+
+	if (!oprt)
+	{
+		printf("Error\n");
+		exit(99);
+	}
+
+	printf("%d\n", oprt(atoi(argv[1]), atoi(argv[3])));
 	return (0);
 }
