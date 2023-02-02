@@ -20,7 +20,7 @@ size_t print_listint_safe(const listint_t *head)
 		num++;
 		if (aux <= aux->next)
 		{
-			printf("-> [%p] %i\n", (void *) aux->next->n);
+			printf("-> [%p] %i\n", (void *) aux->next, aux->next->n);
 			break;
 		}
 		aux = aux->next;
