@@ -17,9 +17,9 @@ unsigned int binary_to_uint(const char *b)
 	{}
 	for (i--; i >= 0; i--, j++)
 	{
-		if (b[i] != '\0' && b[i] != '1')
+		if (b[i] != '0' && b[i] != '1')
 			return (0);
-		num = num + ((b[i] - '0') * _pow_recursion(2, j))
+		num = num + ((b[i] - '0') * _pow_recursion(2, j));
 	}
 	return (num);
 }
